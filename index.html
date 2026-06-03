@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editor - Print Ready</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📷 Photo Editor & Printer</h1>
+            <p>Crop, enhance, and print your photos perfectly</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Panel: Controls -->
+            <div class="control-panel">
+                <section class="panel-section">
+                    <h2>Upload Photos</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="photoInput" multiple accept="image/*" hidden>
+                        <label for="photoInput" class="upload-label">
+                            <span class="upload-icon">📁</span>
+                            <span>Click or drag photos here</span>
+                        </label>
+                    </div>
+                    <div id="photoList" class="photo-list"></div>
+                </section>
+
+                <!-- Paper Size Options -->
+                <section class="panel-section">
+                    <h2>Paper Size</h2>
+                    <div class="paper-sizes">
+                        <label class="radio-option">
+                            <input type="radio" name="paperSize" value="a4" checked>
+                            <span>A4 (210×297mm)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="paperSize" value="a3">
+                            <span>A3 (297×420mm)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="paperSize" value="a5">
+                            <span>A5 (148×210mm)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="paperSize" value="letter">
+                            <span>Letter (8.5×11")</span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Filters & Enhancement -->
+                <section class="panel-section">
+                    <h2>Enhancements</h2>
+                    <div class="filter-group">
+                        <label>Brightness</label>
+                        <input type="range" id="brightness" min="-50" max="50" value="0" class="slider">
+                        <span id="brightnessValue">0%</span>
+                    </div>
+                    <div class="filter-group">
+                        <label>Contrast</label>
+                        <input type="range" id="contrast" min="-50" max="50" value="0" class="slider">
+                        <span id="contrastValue">0%</span>
+                    </div>
+                    <div class="filter-group">
+                        <label>Clarity</label>
+                        <input type="range" id="clarity" min="0" max="100" value="0" class="slider">
+                        <span id="clarityValue">0%</span>
+                    </div>
+                    <div class="filter-group">
+                        <label>Saturation</label>
+                        <input type="range" id="saturation" min="-50" max="50" value="0" class="slider">
+                        <span id="saturationValue">0%</span>
+                    </div>
+                </section>
+
+                <!-- Action Buttons -->
+                <section class="panel-section">
+                    <button id="resetBtn" class="btn btn-secondary">Reset Filters</button>
+                    <button id="downloadBtn" class="btn btn-primary">Download</button>
+                    <button id="printBtn" class="btn btn-primary">Print</button>
+                </section>
+            </div>
+
+            <!-- Right Panel: Preview -->
+            <div class="preview-panel">
+                <div class="preview-container">
+                    <canvas id="canvas" width="800" height="1131"></canvas>
+                    <div id="placeholderMessage" class="placeholder-message">
+                        <p>📸 Upload a photo to get started</p>
+                    </div>
+                </div>
+                <div class="preview-info">
+                    <p id="paperInfo">Paper Size: A4 (210×297mm)</p>
+                    <p id="canvasInfo">Canvas: Loading...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
